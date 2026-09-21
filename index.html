@@ -1,65 +1,325 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo Kaixa - Soluções em Sistemas</title>
-    <!-- Tailwind CSS para estilização rápida e moderna -->
+    <title>Grupo Kaixa — Ecossistema de Gestão e Automação</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darker: '#030712',
+                        cardbg: '#0b0f19',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-indigo-500 selection:text-white">
+<body class="bg-darker text-slate-100 min-h-screen flex flex-col justify-between font-sans selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
 
-    <!-- Container Principal -->
-    <main class="max-w-md mx-auto px-4 py-16 w-full flex flex-col items-center flex-grow">
-        
-        <!-- Logo / Identidade -->
-        <div class="text-center mb-10">
-            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-tr from-indigo-600 to-violet-500 rounded-2xl shadow-lg shadow-indigo-500/30 mb-4 text-3xl font-extrabold tracking-wider">
-                K
-            </div>
-            <h1 class="text-2xl font-bold tracking-tight">Grupo Kaixa</h1>
-            <p class="text-slate-400 text-sm mt-1">Escolha a solução ideal para o seu negócio</p>
-        </div>
+    <!-- Elementos de Luz Ambiental (Glows) -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-indigo-600/10 blur-[160px] pointer-events-none rounded-full"></div>
+    <div class="absolute top-[25%] left-10 w-[450px] h-[450px] bg-violet-600/10 blur-[180px] pointer-events-none rounded-full"></div>
+    <div class="absolute top-[55%] right-10 w-[450px] h-[450px] bg-emerald-600/10 blur-[180px] pointer-events-none rounded-full"></div>
 
-        <!-- Links / Botões de Redirecionamento -->
-        <div class="w-full space-y-4">
+    <!-- 1. HEADER / BARRA DE NAVEGAÇÃO -->
+    <header class="sticky top-0 z-50 w-full bg-darker/85 backdrop-blur-xl border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-28 flex justify-between items-center">
             
-            <!-- Botão KaixaAgenda -->
-            <a href="https://kaixaagenda.com.br" target="_blank" rel="noopener noreferrer" 
-               class="group relative flex items-center p-4 bg-slate-900 border border-slate-800 rounded-xl hover:border-indigo-500 hover:bg-slate-850 transition-all duration-300 shadow-md hover:shadow-indigo-500/10">
-                <div class="flex-shrink-0 w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-lg flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                    📅
-                </div>
-                <div class="ml-4 flex-grow">
-                    <h2 class="font-semibold text-slate-200 group-hover:text-indigo-400 transition-colors">KaixaAgenda</h2>
-                    <p class="text-xs text-slate-400">Sistema de agendamento para salões e barbearias</p>
-                </div>
-                <div class="text-slate-500 group-hover:translate-x-1 transition-transform">
-                    ➔
-                </div>
+            <!-- Logo Super Ampliada -->
+            <a href="#" class="flex items-center py-4 pl-12 md:pl-16 group overflow-visible">
+                <img src="logo.png" alt="Grupo Kaixa Logo" class="h-10 w-auto object-contain scale-[2.8] md:scale-[3.8] origin-left transition-transform">
             </a>
 
-            <!-- Botão KaixaStore -->
-            <a href="https://kaixastore.com.br" target="_blank" rel="noopener noreferrer" 
-               class="group relative flex items-center p-4 bg-slate-900 border border-slate-800 rounded-xl hover:border-emerald-500 hover:bg-slate-850 transition-all duration-300 shadow-md hover:shadow-emerald-500/10">
-                <div class="flex-shrink-0 w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-lg flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                    🛒
-                </div>
-                <div class="ml-4 flex-grow">
-                    <h2 class="font-semibold text-slate-200 group-hover:text-emerald-400 transition-colors">KaixaStore</h2>
-                    <p class="text-xs text-slate-400">PDV, controle de estoque e catálogo digital</p>
-                </div>
-                <div class="text-slate-500 group-hover:translate-x-1 transition-transform">
-                    ➔
-                </div>
-            </a>
+            <!-- Links de Navegação (Desktop) -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#solucoes" class="hover:text-indigo-400 transition-colors">Soluções</a>
+                <a href="#recursos" class="hover:text-indigo-400 transition-colors">Recursos</a>
+                <a href="#depoimentos" class="hover:text-indigo-400 transition-colors">Depoimentos</a>
+                <a href="#faq" class="hover:text-indigo-400 transition-colors">Dúvidas</a>
+                <a href="#suporte" class="hover:text-indigo-400 transition-colors">Suporte</a>
+            </nav>
+
+            <!-- Área do Cliente / Ação -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5566992655847?text=Olá!%20Gostaria%20de%20acessar%20a%20área%20do%20cliente%20no%20Grupo%20Kaixa." target="_blank" rel="noopener noreferrer" 
+                   class="text-xs font-semibold px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-indigo-500/50 transition-all shadow-sm">
+                    Área do cliente
+                </a>
+            </div>
 
         </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow">
+
+        <!-- 2. HERO SECTION -->
+        <section class="max-w-5xl mx-auto px-4 pt-20 pb-12 md:pt-28 md:pb-16 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold mb-6 tracking-wide shadow-sm shadow-indigo-500/10">
+                ⚡ ECOSSISTEMA KAIXA
+            </div>
+            <h1 class="text-4xl md:text-7xl font-black tracking-tight mb-6 leading-[1.1]">
+                Tecnologia para simplificar <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-violet-400 bg-clip-text text-transparent">o seu negócio</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Sistemas inteligentes para vendas, agendamentos, atendimento e gestão.
+            </p>
+            <div class="flex justify-center">
+                <a href="#solucoes" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-2xl transition-all shadow-xl shadow-indigo-600/30 hover:scale-105 flex items-center gap-3">
+                    <span>Conhecer soluções</span>
+                    <span>↓</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- MÉTRICAS DE IMPACTO (PROVA SOCIAL) -->
+        <section class="max-w-5xl mx-auto px-4 pb-20 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-slate-900/50 border border-slate-800/80 rounded-3xl backdrop-blur-xl text-center">
+                <div class="p-4">
+                    <span class="block text-2xl md:text-3xl font-black text-indigo-400">+250</span>
+                    <span class="text-xs text-slate-400 font-medium">Empresas Ativas</span>
+                </div>
+                <div class="p-4">
+                    <span class="block text-2xl md:text-3xl font-black text-violet-400">+1 mil</span>
+                    <span class="text-xs text-slate-400 font-medium">Agendamentos / Mês</span>
+                </div>
+                <div class="p-4">
+                    <span class="block text-2xl md:text-3xl font-black text-emerald-400">+4 mil</span>
+                    <span class="text-xs text-slate-400 font-medium">Produtos Cadastrados</span>
+                </div>
+                <div class="p-4">
+                    <span class="block text-2xl md:text-3xl font-black text-amber-400">99.9%</span>
+                    <span class="text-xs text-slate-400 font-medium">Disponibilidade Online</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. NOSSAS SOLUÇÕES (GRID DE SISTEMAS) -->
+        <section id="solucoes" class="max-w-6xl mx-auto px-4 py-16 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-2">Plataformas Especializadas</h2>
+                <p class="text-3xl md:text-4xl font-extrabold text-slate-100">NOSSAS SOLUÇÕES</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Kaixa Agenda -->
+                <div class="group relative bg-slate-900/60 backdrop-blur-2xl border border-slate-800 hover:border-indigo-500/50 rounded-3xl p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/15 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform border border-indigo-500/20">
+                                📅
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-100 group-hover:text-indigo-400 transition-colors">Kaixa Agenda</h3>
+                                <span class="text-xs text-indigo-400 font-medium">Salões, Barbearias & Clínicas</span>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-400 text-sm md:text-base mb-6 leading-relaxed">
+                            Sistema completo de agendamentos online 24/7 com link exclusivo, controle financeiro, comissões da equipe e lembretes automáticos no WhatsApp.
+                        </p>
+
+
+                        <div class="space-y-2 mb-8 text-sm text-slate-300">
+                            <div class="flex items-center gap-2">✓ Agenda Online 24h</div>
+                            <div class="flex items-center gap-2">✓ Lembrete automático no WhatsApp</div>
+                            <div class="flex items-center gap-2">✓ Gestão de comissões e financeiro</div>
+                        </div>
+                    </div>
+
+                    <a href="https://kaixaagenda.com.br" target="_blank" rel="noopener noreferrer" 
+                       class="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-2xl text-center transition-all shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+                        <span>Conhecer</span>
+                        <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                </div>
+
+                <!-- Kaixa Store -->
+                <div class="group relative bg-slate-900/60 backdrop-blur-2xl border border-slate-800 hover:border-emerald-500/50 rounded-3xl p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/15 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform border border-emerald-500/20">
+                                🛒
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors">Kaixa Store</h3>
+                                <span class="text-xs text-emerald-400 font-medium">Comércios, Lojas & Catálogos</span>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-400 text-sm md:text-base mb-6 leading-relaxed">
+                            A plataforma definitiva para comércios locais. Realize vendas rápidas no PDV de balcão, gerencie estoques e receba pedidos organizados direto no WhatsApp.
+                        </p>
+
+
+
+                        <div class="space-y-2 mb-8 text-sm text-slate-300">
+                            <div class="flex items-center gap-2">✓ Frente de Caixa (PDV) ágil</div>
+                            <div class="flex items-center gap-2">✓ Catálogo digital web personalizado</div>
+                            <div class="flex items-center gap-2">✓ Controle de estoque em tempo real</div>
+                        </div>
+                    </div>
+
+                    <a href="https://kaixastore.com.br" target="_blank" rel="noopener noreferrer" 
+                       class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-2xl text-center transition-all shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2">
+                        <span>Conhecer</span>
+                        <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. RECURSOS / DIFERENCIAIS -->
+        <section id="recursos" class="max-w-6xl mx-auto px-4 py-16 relative z-10">
+            <div class="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-8 md:p-12 backdrop-blur-xl text-center">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-100 mb-10">UM ECOSSISTEMA. VÁRIAS SOLUÇÕES.</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="p-4 bg-slate-950/50 rounded-2xl border border-slate-800/60 flex flex-col items-center">
+                        <span class="text-3xl mb-3">⚡</span>
+                        <h4 class="font-bold text-slate-200 text-sm">Automação</h4>
+                    </div>
+                    <div class="p-4 bg-slate-950/50 rounded-2xl border border-slate-800/60 flex flex-col items-center">
+                        <span class="text-3xl mb-3">📊</span>
+                        <h4 class="font-bold text-slate-200 text-sm">Gestão</h4>
+                    </div>
+                    <div class="p-4 bg-slate-950/50 rounded-2xl border border-slate-800/60 flex flex-col items-center">
+                        <span class="text-3xl mb-3">📱</span>
+                        <h4 class="font-bold text-slate-200 text-sm">WhatsApp</h4>
+                    </div>
+                    <div class="p-4 bg-slate-950/50 rounded-2xl border border-slate-800/60 flex flex-col items-center">
+                        <span class="text-3xl mb-3">🔒</span>
+                        <h4 class="font-bold text-slate-200 text-sm">Segurança</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE DEPOIMENTOS -->
+        <section id="depoimentos" class="max-w-6xl mx-auto px-4 py-16 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-2">Histórias de Sucesso</h2>
+                <p class="text-3xl md:text-4xl font-extrabold text-slate-100">O que nossos clientes dizem</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-3xl p-8 backdrop-blur-xl flex flex-col justify-between">
+                    <p class="text-slate-300 text-sm md:text-base italic mb-6">
+                        "O Kaixa Agenda mudou completamente a rotina do meu salão. Os clientes adoram agendar sozinhos pelo link."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-indigo-500/20 text-indigo-400 rounded-full flex items-center justify-center font-bold">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-200 text-sm">Marcos Vinícius</h4>
+                            <span class="text-xs text-slate-500">Proprietário de Barbearia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-3xl p-8 backdrop-blur-xl flex flex-col justify-between">
+                    <p class="text-slate-300 text-sm md:text-base italic mb-6">
+                        "Com o Kaixa Store consigo controlar meu estoque e fazer vendas rápidas no balcão sem dor de cabeça. O catálogo digital integrado facilitou muito minhas vendas online."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center font-bold">
+                            C
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-200 text-sm">Camila Souza</h4>
+                            <span class="text-xs text-slate-500">Lojista de Vestuário</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO FAQ (PERGUNTAS FREQUENTES) -->
+        <section id="faq" class="max-w-4xl mx-auto px-4 py-16 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-2">Esclareça suas dúvidas</h2>
+                <p class="text-3xl md:text-4xl font-extrabold text-slate-100">Perguntas Frequentes</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur-xl">
+                    <h3 class="font-bold text-slate-200 text-base mb-2">Como faço para começar a usar os sistemas?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Basta clicar em "Conhecer" no sistema desejado ou falar diretamente com nossa equipe pelo WhatsApp para realizarmos a liberação do seu acesso.</p>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur-xl">
+                    <h3 class="font-bold text-slate-200 text-base mb-2">Preciso instalar algum programa no computador?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Não! Nossas plataformas são 100% online em nuvem. Você pode acessar direto do navegador do seu computador, tablet ou celular com total segurança.</p>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur-xl">
+                    <h3 class="font-bold text-slate-200 text-base mb-2">Como funciona o suporte técnico?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Oferecemos suporte ágil e humanizado diretamente via WhatsApp para auxiliar em qualquer dúvida ou configuração que você precise.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SOBRE / FEITO PARA O SEU NEGÓCIO -->
+        <section id="sobre" class="max-w-6xl mx-auto px-4 py-16 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-100 mb-6">FEITO PARA O SEU NEGÓCIO</h2>
+                <div class="w-full bg-slate-900/80 border border-slate-800 rounded-3xl p-10 backdrop-blur-2xl shadow-2xl flex items-center justify-center min-h-[220px]">
+                    <span class="text-slate-500 text-sm font-mono">[ imagem/dashboard ]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SUPORTE / PRONTO PARA COMEÇAR? -->
+        <section id="suporte" class="max-w-4xl mx-auto px-4 py-16 relative z-10 text-center">
+            <div class="bg-gradient-to-b from-indigo-950/30 via-slate-900/80 to-slate-900/90 border border-slate-800 rounded-3xl p-10 md:p-14 backdrop-blur-xl shadow-2xl">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-100 mb-4">Pronto para começar?</h2>
+                <p class="text-slate-400 text-sm md:text-base mb-8">Fale diretamente com nossa equipe e descubra a solução ideal para a sua empresa.</p>
+                <a href="https://wa.me/5566992655847?text=Olá!%20Vim%20pelo%20site%20do%20Grupo%20Kaixa%20e%20gostaria%20de%20começar." target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-2xl transition-all shadow-xl shadow-emerald-600/30 hover:scale-105">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>Falar com nossa equipe</span>
+                </a>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Rodapé -->
-    <footer class="w-full text-center py-6 text-xs text-slate-600 border-t border-slate-900">
-        &copy; 2026 Grupo Kaixa. Todos os direitos reservados.
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5566992655847?text=Olá!%20Vim%20pelo%20site%20do%20Grupo%20Kaixa." target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/50 transition-all duration-300 hover:scale-110" title="Fale conosco no WhatsApp">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <!-- 7. RODAPÉ -->
+    <footer class="w-full bg-slate-950 border-t border-slate-900 py-10 px-6 text-xs text-slate-500 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <!-- Logo no Rodapé também ampliada -->
+            <div class="flex items-center overflow-visible py-2 pl-6">
+                <img src="logo.png" alt="Grupo Kaixa Logo" class="h-10 w-auto object-contain scale-[2.5] origin-left">
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-slate-400">
+                <a href="#solucoes" class="hover:text-white transition-colors">Soluções</a>
+                <a href="#depoimentos" class="hover:text-white transition-colors">Depoimentos</a>
+                <a href="#faq" class="hover:text-white transition-colors">Dúvidas</a>
+                <a href="#suporte" class="hover:text-white transition-colors">Suporte</a>
+            </div>
+
+            <div class="text-slate-600 text-center md:text-right">
+                &copy; 2026 Grupo Kaixa. Todos os direitos reservados.
+            </div>
+        </div>
     </footer>
 
 </body>
